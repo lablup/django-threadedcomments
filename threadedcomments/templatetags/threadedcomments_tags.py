@@ -201,7 +201,7 @@ class RenderCommentFormNode(CommentFormNode):
             form_str = render_to_string(
                 template_search_list,
                 {"form" : self.get_form(context)},
-                context
+                # context
             )
             context.pop()
             return form_str
@@ -257,7 +257,7 @@ class RenderCommentListNode(CommentListNode):
             context.push()
             liststr = render_to_string(template_search_list, {
                 "comment_list" : self.get_context_value_from_queryset(context, qs)
-            }, context)
+            })#, context)
             context.pop()
             return liststr
         else:
